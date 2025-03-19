@@ -52,7 +52,7 @@ An Arduino-based embedded system that detects motion and measures object distanc
 
 2. **Upload Code**:
    - Clone this repo:  
-     `git clone https://github.com/yourusername/smart-distance-detection.git`
+     `git clone https://github.com/jefry-dot/smart-distance-motion-detection`
    - Open `SmartDistanceDetector.ino` in Arduino IDE.
    - Select board (Arduino Uno) and port.
    - Upload the code.
