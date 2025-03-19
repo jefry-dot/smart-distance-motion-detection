@@ -83,18 +83,23 @@ An Arduino-based embedded system that detects motion and measures object distanc
 graph TD
   A[Start] --> B[Initialize Components]
   B --> C[Read PIR Sensor]
-  B --> D[Trigger Ultrasonic Pulse]
-  D --> E[Measure Echo Duration]
-  E --> F[Calculate Distance]
-  F --> G{Check Distance}
-  G -->| <50 cm | H[Activate Red LED]
-  G -->| 50-125 cm | I[Activate Yellow LED]
-  G -->| >125 cm | J[Activate Green LED]
-  H --> K[Update OLED Display]
-  I --> K
-  J --> K
-  K --> L[Delay 500ms]
-  L --> C
+  C --> D{Motion Detected?}
+  D -->|Yes| E[Set Motion Status: Detected]
+  D -->|No| F[Set Motion Status: Not Detected]
+  E --> G[Trigger Ultrasonic Pulse]
+  F --> G
+  G --> H[Measure Echo Duration]
+  H --> I[Calculate Distance]
+  I --> J{Check Distance}
+  J -->| <50 cm | K[Activate Red LED]
+  J -->| 50-125 cm | L[Activate Yellow LED]
+  J -->| >125 cm | M[Activate Green LED]
+  K --> N[Update OLED Display]
+  L --> N
+  M --> N
+  N --> O[Delay 500ms]
+  O --> C
+
 ```
 
 ---
